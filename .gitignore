@@ -7,7 +7,9 @@ application/logs/*
 !application/logs/index.html
 
 !application/*/.htaccess
-
+# Archivos sensibles de CodeIgniter
+application/config/config.php
+application/config/database.php
 composer.lock
 tests/mocks/database/ci_test.sqlite
 
