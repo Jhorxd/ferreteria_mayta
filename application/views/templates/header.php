@@ -259,7 +259,9 @@ nav ul li a:hover {
 
 <header>
     <div class="logo">
-        <img src="<?= base_url('images/logo/logo.png') ?>" alt="Logo">
+        <a href="<?= base_url(); ?>">
+            <img src="<?= base_url('images/logo/logo.png') ?>" alt="Logo">
+        </a>
     </div>
 
     <nav>
