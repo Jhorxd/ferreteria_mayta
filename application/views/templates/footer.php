@@ -36,7 +36,7 @@
     }
 
     .footer-left .logo img {
-        width: 150px;
+        width: 430px;
         margin-bottom: 15px;
     }
 
@@ -101,24 +101,41 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 35px;
-    height: 35px;
-    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     color: #fff;
+    font-size: 18px;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.footer-bottom .social-icons a i {
-    font-size: 16px;
+/* ---- COLORES INDIVIDUALES ---- */
+.footer-bottom .social-icons a.facebook {
+    background-color: #1877F2;
+}
+.footer-bottom .social-icons a.twitter {
+    background-color: #1DA1F2;
+}
+.footer-bottom .social-icons a.instagram {
+    background: linear-gradient(45deg, #feda75, #d62976, #962fbf, #4f5bd5);
+}
+.footer-bottom .social-icons a.youtube {
+    background-color: #FF0000;
+}
+.footer-bottom .social-icons a.whatsapp {
+    background-color: #25D366;
 }
 
-/* Hover: fondo blanco y texto negro */
+/* 🔥 TIKTOK (colores oficiales) */
+.footer-bottom .social-icons a.tiktok {
+    background: linear-gradient(45deg, #25F4EE, #FE2C55);
+}
+
+/* Hover: agranda y aclara el color */
 .footer-bottom .social-icons a:hover {
-    background-color: #fff;
-    color: #000;
-    transform: scale(1.1);
+    transform: scale(1.15);
+    filter: brightness(1.15);
 }
 
 /* Responsive */
@@ -140,6 +157,7 @@
         margin-top: 10px;
     }
 }
+
 
 /* aquí va todo tu CSS del footer y del body */
 
@@ -182,6 +200,16 @@
             <p>Ventas, importación y distribución de herramientas para la industria de metalmecánica</p>
             <p>+51 981 475 582</p>
             <p>Av. Argentina 469 lima lima, Lima 15082</p>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
         </div>
 
         <div class="footer-right">
@@ -203,17 +231,6 @@
 
 <div class="footer-bottom">
     <p>@2024 FERRETERIA MAYTA - Todos los derechos reservados.</p>
-    <div class="social-icons">
-        <a href="https://www.facebook.com/" class="facebook" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/" class="instagram" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.tiktok.com/" class="tiktok" target="_blank">
-            <i class="fab fa-tiktok"></i>
-        </a>
-    </div>
 </div>
 </footer>
 <!-- BOTÓN FLOTANTE DE WHATSAPP -->

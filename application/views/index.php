@@ -4,32 +4,88 @@
 /* BANNER FULL ANCHO RESPONSIVO           */
 /* ======================================= */
 
-.banner {
+.carousel-banner {
+    position: relative;
     width: 100%;
+    overflow: hidden;
     height: 700px;
-    background-image: url('<?= base_url("images/banner/banner.jpg") ?>');
+}
+
+/* CARRIL horizontal para poder arrastrar */
+.slides-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+/* Slides visibles siempre para permitir arrastre */
+.carousel-banner .slide {
+    min-width: 100%;
+    height: 700px;
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-    padding: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-
-    box-sizing: border-box;
 }
 
-/* Tablet y celular → esconder banner */
+/* Flechas */
+.carousel-banner .prev, 
+.carousel-banner .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.carousel-banner .prev:hover, .carousel-banner .next:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.carousel-banner .prev { left: 20px; }
+.carousel-banner .next { right: 20px; }
+
+/* Puntitos */
+.carousel-banner .dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.carousel-banner .dots .dot {
+    width: 15px;
+    height: 15px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.carousel-banner .dots .dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* Ocultar en móviles */
 @media (max-width: 992px) {
-    .banner {
+    .carousel-banner {
         display: none !important;
     }
 }
+
 
 /* ======================================= */
 /* CARRUSEL RESPONSIVO + TOUCH + DRAG     */
@@ -178,8 +234,28 @@
 </style>
 
 
-<div class="banner">
+<div class="carousel-banner">
+
+    <div class="slides-wrapper">
+
+        <div class="slide" style="background-image: url('<?= base_url("images/banner/banner.jpg") ?>');">
+        </div>
+
+        <div class="slide" style="background-image: url('<?= base_url("images/banner/banner2.jpg") ?>');">
+        </div>
+
+        <div class="slide" style="background-image: url('<?= base_url("images/banner/banner3.jpg") ?>');">
+        </div>
+
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+    <div class="dots"></div>
 </div>
+
+
 
 <section style="text-align:center; padding:10px 5px; background-color:#f8f8f8;">
 <br><br>
@@ -407,46 +483,126 @@ slider.addEventListener('scroll', () => {
 </script>
 
 <script>
-const carousel = document.querySelector(".carousel");
+document.addEventListener("DOMContentLoaded", function () {
 
-let isDown = false;
-let startX;
-let scrollLeft;
+    const wrapper = document.querySelector(".slides-wrapper");
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    const dotsContainer = document.querySelector(".dots");
 
-carousel.addEventListener("mousedown", (e) => {
-    isDown = true;
-    carousel.classList.add("active");
-    startX = e.pageX - carousel.offsetLeft;
-    scrollLeft = carousel.scrollLeft;
-});
+    let index = 0;
+    let startX = 0;
+    let dragging = false;
+    let autoplay;
 
-carousel.addEventListener("mouseleave", () => {
-    isDown = false;
-    carousel.classList.remove("active");
-});
+    // Crear puntitos
+    slides.forEach((_, i) => {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    });
 
-carousel.addEventListener("mouseup", () => {
-    isDown = false;
-    carousel.classList.remove("active");
-});
+    const dots = document.querySelectorAll(".dot");
 
-carousel.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    const walk = (x - startX) * 2;
-    carousel.scrollLeft = scrollLeft - walk;
-});
+    // --- ACTUALIZAR SLIDE ---
+    function updatePosition() {
+        wrapper.style.transition = "0.4s ease";
+        wrapper.style.transform = `translateX(${-index * 100}%)`;
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[index].classList.add("active");
+    }
 
-/* Touch (celular) */
-carousel.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].pageX - carousel.offsetLeft;
-    scrollLeft = carousel.scrollLeft;
-});
+    function nextSlide() {
+        index = (index + 1) % slides.length;
+        updatePosition();
+    }
 
-carousel.addEventListener("touchmove", (e) => {
-    const x = e.touches[0].pageX - carousel.offsetLeft;
-    const walk = (x - startX) * 2;
-    carousel.scrollLeft = scrollLeft - walk;
+    function prevSlide() {
+        index = (index - 1 + slides.length) % slides.length;
+        updatePosition();
+    }
+
+    function goToSlide(i) {
+        index = i;
+        updatePosition();
+        resetAutoplay();
+    }
+
+    // --- AUTOPLAY ---
+    function startAutoplay() {
+        autoplay = setInterval(nextSlide, 10000); // 10 segundos
+    }
+
+    function resetAutoplay() {
+        clearInterval(autoplay);
+        startAutoplay();
+    }
+
+    startAutoplay();
+
+// --- BOTONES ---
+if (nextBtn && prevBtn) {
+
+    nextBtn.addEventListener("click", () => {
+        nextSlide();
+        resetAutoplay();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        prevSlide();
+        resetAutoplay();
+    });
+
+}
+
+
+    // --- DRAG (PC + TOUCH) ---
+    wrapper.addEventListener("mousedown", startDrag);
+    wrapper.addEventListener("touchstart", startDrag);
+
+    wrapper.addEventListener("mousemove", drag);
+    wrapper.addEventListener("touchmove", drag);
+
+    wrapper.addEventListener("mouseup", endDrag);
+    wrapper.addEventListener("mouseleave", endDrag);
+    wrapper.addEventListener("touchend", endDrag);
+
+    function startDrag(e) {
+        dragging = true;
+        clearInterval(autoplay); // Pausar autoplay
+        startX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
+        wrapper.style.transition = "none";
+    }
+
+    function drag(e) {
+        if (!dragging) return;
+
+        let currentX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
+        let diff = currentX - startX;
+
+        wrapper.style.transform =
+            `translateX(${ -index * 100 + (diff / window.innerWidth) * 100 }%)`;
+    }
+
+    function endDrag(e) {
+        if (!dragging) return;
+        dragging = false;
+
+        let endX = e.type.includes("mouse") ? e.clientX : e.changedTouches[0].clientX;
+        let moved = startX - endX;
+
+        wrapper.style.transition = "0.3s ease";
+
+        if (moved > 50) nextSlide();
+        else if (moved < -50) prevSlide();
+        else updatePosition();
+
+        resetAutoplay(); // Reanudar autoplay
+    }
+
 });
 </script>
+
