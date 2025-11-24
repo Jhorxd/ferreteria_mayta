@@ -2,22 +2,30 @@
 /* ------------------ BANNER ------------------ */
 .banner {
     width: 100%;
-    height: 480px;
+    height: 700px;
     background-image: url('<?= base_url("images/nosotros/nosotros.png") ?>');
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 70px;
-    font-family: "Poppins", sans-serif;
-    color: #fff;
-    font-size: 42px;
-    letter-spacing: 1px;
-    font-weight: 800;
-    text-shadow: 3px 3px 20px rgba(0,0,0,0.6);
+    align-items: center;
+    text-align: center;
+
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    padding: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+
+    box-sizing: border-box;
 }
 
+/* Tablet y celular → esconder banner */
+@media (max-width: 992px) {
+    .banner {
+        display: none !important;
+    }
+}
 
 /* ------------------ SECCIÓN NOSOTROS ------------------ */
 

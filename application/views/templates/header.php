@@ -252,6 +252,89 @@ nav ul li a:hover {
     }
 }
 
+/* Botón hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 100000; /* SIEMPRE ENCIMA DEL MENU */
+    position: relative;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: #333;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+/* Animación en forma de X */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -7px);
+}
+
+/* MENU FULLSCREEN */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* CENTRA VERTICAL */
+    align-items: center;     /* CENTRA HORIZONTAL */
+
+    text-align: center;
+    gap: 25px;
+    font-size: 22px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.35s ease;
+    z-index: 9999; /* MÁS BAJO QUE EL HAMBURGUESA */
+}
+
+/* Activo */
+.mobile-menu.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Responsivo */
+@media(max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mega-menu {
+        display: none !important;
+    }
+}
+
+
 </style>
 
 </head>
@@ -264,18 +347,17 @@ nav ul li a:hover {
         </a>
     </div>
 
-    <nav>
+    <!-- Menú normal (desktop) -->
+    <nav id="nav">
         <ul class="menu">
             <li><a href="<?= base_url('index.php/inicio'); ?>">Inicio</a></li>
 
             <li class="mega">
                 <a href="<?= base_url('index.php/productos'); ?>">Productos</a>
-
                 <div class="mega-menu">
                     <?php foreach ($menu as $categoria => $productos): ?>
                         <div class="columna">
                             <h3><?= $categoria ?></h3>
-
                             <?php foreach ($productos as $p): ?>
                                 <a href="<?= base_url('index.php/productos/ver/' . $p['id']); ?>" class="item">
                                     <?= $p['nombre'] ?>
@@ -290,7 +372,23 @@ nav ul li a:hover {
             <li><a href="<?= base_url('index.php/contacto'); ?>">Contáctenos</a></li>
         </ul>
     </nav>
+
+    <!-- Botón hamburguesa A LA DERECHA -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- MENÚ FULLSCREEN -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="<?= base_url('index.php/inicio'); ?>">Inicio</a>
+        <a href="<?= base_url('index.php/productos'); ?>">Productos</a>
+        <a href="<?= base_url('index.php/nosotros'); ?>">Nosotros</a>
+        <a href="<?= base_url('index.php/contacto'); ?>">Contáctenos</a>
+    </div>
 </header>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -309,3 +407,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 </script>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    mobileMenu.classList.toggle("show");
+});
+</script>
+

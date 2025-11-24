@@ -3,10 +3,9 @@
      /* ======================================= */
 /* BANNER FULL ANCHO RESPONSIVO           */
 /* ======================================= */
-
 .banner {
     width: 100%;
-    height: 500px;
+    height: 700px;
     background-image: url('<?= base_url("images/banner/contacto.jpg") ?>');
     background-size: cover;
     background-position: center;
@@ -21,26 +20,16 @@
     padding: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 
-    box-sizing: border-box; /* ✅ agrega esto */
+    box-sizing: border-box;
 }
 
-
-/* Tablet */
+/* Tablet y celular → esconder banner */
 @media (max-width: 992px) {
     .banner {
-        height: 700px;
-        font-size: 30px;
+        display: none !important;
     }
 }
 
-/* Celular */
-@media (max-width: 600px) {
-    .banner {
-        height: 500px;
-        font-size: 24px;
-        padding: 10px;
-    }
-}
 </style>
 
 <div class="banner">

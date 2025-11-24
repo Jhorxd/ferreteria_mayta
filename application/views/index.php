@@ -21,24 +21,13 @@
     padding: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 
-    box-sizing: border-box; /* ✅ agrega esto */
+    box-sizing: border-box;
 }
 
-
-/* Tablet */
+/* Tablet y celular → esconder banner */
 @media (max-width: 992px) {
     .banner {
-        height: 700px;
-        font-size: 30px;
-    }
-}
-
-/* Celular */
-@media (max-width: 600px) {
-    .banner {
-        height: 500px;
-        font-size: 24px;
-        padding: 10px;
+        display: none !important;
     }
 }
 
@@ -193,7 +182,7 @@
 </div>
 
 <section style="text-align:center; padding:10px 5px; background-color:#f8f8f8;">
-
+<br><br>
 <h2 style="font-size:48px; font-weight:900; margin-bottom:20px;">
     HERRAMIENTAS DE CONFIANZA PARA LA INDUSTRIA
 </h2>
