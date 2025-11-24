@@ -119,7 +119,7 @@
             <i class="fas fa-folder-plus"></i>
             <h3>Agregar Categoría</h3>
             <p>Registra nuevas categorías para organizar tus productos.</p>
-            <a class="btn" href="<?= base_url('categoria/agregar'); ?>">Ir</a>
+            <a class="btn" href="<?= base_url('index.php/categoria/agregar'); ?>">Ir</a>
         </div>
 
         <!-- EDITAR CATEGORÍAS -->
@@ -127,7 +127,7 @@
             <i class="fas fa-edit"></i>
             <h3>Editar Categorías</h3>
             <p>Modifica, elimina o actualiza categorías existentes.</p>
-            <a class="btn" href="<?= base_url('categoria/listar'); ?>">Ir</a>
+            <a class="btn" href="<?= base_url('index.php/categoria/listar'); ?>">Ir</a>
         </div>
 
         <!-- AGREGAR PRODUCTO -->
@@ -135,7 +135,7 @@
             <i class="fas fa-box-open"></i>
             <h3>Agregar Producto</h3>
             <p>Ingresa nuevos productos con precios y stock.</p>
-            <a class="btn" href="<?= base_url('producto/agregar'); ?>">Ir</a>
+            <a class="btn" href="<?= base_url('index.php/productos/agregar'); ?>">Ir</a>
         </div>
 
         <!-- EDITAR PRODUCTOS -->
@@ -143,7 +143,7 @@
             <i class="fas fa-boxes-stacked"></i>
             <h3>Editar Productos</h3>
             <p>Actualiza información de productos ya registrados.</p>
-            <a class="btn" href="<?= base_url('producto/listar'); ?>">Ir</a>
+            <a class="btn" href="<?= base_url('index.php/productos/listar'); ?>">Ir</a>
         </div>
     </div>
 </div>

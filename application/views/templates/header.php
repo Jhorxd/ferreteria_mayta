@@ -370,6 +370,14 @@ nav ul li a:hover {
 
             <li><a href="<?= base_url('index.php/nosotros'); ?>">Nosotros</a></li>
             <li><a href="<?= base_url('index.php/contacto'); ?>">Contáctenos</a></li>
+
+            <?php 
+            $ci = get_instance();
+            if ($ci->session->userdata('logeado') && $ci->session->userdata('usuario_id') == 1): ?>
+                <li style="margin-left:auto;">
+                    <a href="<?= base_url('index.php/login/dashboard'); ?>" style="font-weight:bold;">ADMINISTRAR</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </nav>
 
@@ -386,6 +394,11 @@ nav ul li a:hover {
         <a href="<?= base_url('index.php/productos'); ?>">Productos</a>
         <a href="<?= base_url('index.php/nosotros'); ?>">Nosotros</a>
         <a href="<?= base_url('index.php/contacto'); ?>">Contáctenos</a>
+
+        <?php 
+        if ($ci->session->userdata('logeado') && $ci->session->userdata('usuario_id') == 1): ?>
+            <a href="<?= base_url('index.php/login/dashboard'); ?>" style="font-weight:bold;">ADMINISTRAR</a>
+        <?php endif; ?>
     </div>
 </header>
 

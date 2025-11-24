@@ -45,6 +45,7 @@ class Login extends CI_Controller {
         // Hash correcto: MD5
         $password_md5 = md5($password);
 
+
         // Validar en modelo
         $userData = $this->Login_model->verificarUsuario($usuario, $password_md5);
 

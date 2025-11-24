@@ -4,6 +4,7 @@ class Inicio extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model("Menu_model"); // <- NECESARIO
+         $this->load->library('session'); // <- esto es clave
     }
 private function menuData() {
         $dataDB = $this->Menu_model->getCategoriasConProductos();

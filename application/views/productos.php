@@ -217,7 +217,7 @@
             "cepillos",
             "taladro",
             "fresa",
-            "brocas"
+            "broca"
         ];
 
         foreach ($imagenes as $index => $img): ?>
