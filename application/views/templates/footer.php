@@ -230,7 +230,7 @@
     </div>
 
 <div class="footer-bottom">
-    <p>@2024 FERRETERIA MAYTA - Todos los derechos reservados.</p>
+    <p>@2025 FERRETERIA MAYTA - Todos los derechos reservados.</p>
 </div>
 </footer>
 <!-- BOTÓN FLOTANTE DE WHATSAPP -->
