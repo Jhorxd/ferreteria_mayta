@@ -247,6 +247,15 @@
         <div class="slide" style="background-image: url('<?= base_url("images/banner/banner3.jpg") ?>');">
         </div>
 
+        <div class="slide" style="background-image: url('<?= base_url("images/banner/banner4.jpg") ?>');">
+        </div>
+
+        <div class="slide" style="background-image: url('<?= base_url("images/banner/banner5.jpg") ?>');">
+        </div>
+
+        <div class="slide" style="background-image: url('<?= base_url("images/banner/banner6.jpg") ?>');">
+        </div>
+
     </div>
 
     <button class="prev">&#10094;</button>
