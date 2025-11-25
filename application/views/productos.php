@@ -222,7 +222,7 @@
 
         foreach ($imagenes as $index => $img): ?>
             
-            <a href="<?= base_url('index.php/productos/categoria/' . $slugs[$index]) ?>" class="galeria-item">
+            <a href="<?= base_url('productos/categoria/' . $slugs[$index]) ?>" class="galeria-item">
                 
                 <div class="img-wrapper">
                     <img src="<?= base_url('images/categorias/' . $img) ?>" alt="<?= $titulos[$index] ?>">

@@ -211,10 +211,10 @@
     </div>
 
 <div class="breadcrumb">
-    <a href="<?= base_url('index.php') ?>">Inicio</a>
+    <a href="<?= base_url() ?>">Inicio</a>
     <span>></span>
 
-    <a href="<?= base_url('index.php/productos') ?>">Productos</a>
+    <a href="<?= base_url('productos') ?>">Productos</a>
     <span>></span>
 
     <strong><?= $categoria ?></strong>
@@ -226,7 +226,7 @@
     <?php if (!empty($productos)): ?>
         <?php foreach ($productos as $p): ?>
 
-            <a href="<?= base_url('index.php/productos/ver/' . $p->id) ?>" class="producto-card">
+            <a href="<?= base_url('productos/ver/' . $p->id) ?>" class="producto-card">
 
                 <img src="<?= base_url('images/productos/' . strtolower($categoria) . '/' . $p->id . '.jpg') ?>" 
                      alt="<?= $p->nombre ?>">

@@ -26,7 +26,7 @@ class Categoria extends CI_Controller {
 
             $this->Categoria_model->insertarCategoria($nombre);
 
-            redirect(base_url("index.php/categoria/listar"));
+            redirect(base_url("categoria/listar"));
         }
 
         $this->load->view("categorias/agregar");
@@ -44,7 +44,7 @@ class Categoria extends CI_Controller {
 
             $this->Categoria_model->actualizarCategoria($id, $nombre);
 
-            redirect(base_url("index.php/categoria/listar"));
+            redirect(base_url("categoria/listar"));
         }
 
         $this->load->view("categorias/editar", $data);
@@ -55,7 +55,7 @@ class Categoria extends CI_Controller {
     // ===========================
     public function eliminar($id) {
         $this->Categoria_model->eliminarCategoria($id);
-        redirect(base_url("index.php/categoria/listar"));
+        redirect(base_url("categoria/listar"));
     }
 }
 ?>

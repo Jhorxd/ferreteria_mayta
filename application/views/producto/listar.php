@@ -4,8 +4,8 @@
     <!-- Agregar SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <a href="<?= base_url('index.php/login/dashboard'); ?>" class="btn-back">&#8592; Volver</a>
-    <a href="<?= base_url('index.php/productos/agregar'); ?>" class="btn-create">Crear</a>
+    <a href="<?= base_url('login/dashboard'); ?>" class="btn-back">&#8592; Volver</a>
+    <a href="<?= base_url('productos/agregar'); ?>" class="btn-create">Crear</a>
 
     <title>Listado de Productos</title>
 
@@ -190,8 +190,8 @@
                 <td>S/ <?= number_format($p->precio, 2) ?></td>
 
                 <td>
-                    <a href="<?= base_url('index.php/productos/editar/'.$p->id) ?>">Editar</a>
-                    <a href="<?= base_url('index.php/productos/eliminar/'.$p->id) ?>" class="btn-eliminar" data-id="<?= $p->id ?>">Eliminar</a>
+                    <a href="<?= base_url('productos/editar/'.$p->id) ?>">Editar</a>
+                    <a href="<?= base_url('productos/eliminar/'.$p->id) ?>" class="btn-eliminar" data-id="<?= $p->id ?>">Eliminar</a>
                 </td>
             </tr>
         <?php endforeach; ?>

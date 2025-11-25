@@ -139,11 +139,11 @@
 
 <br>
 <div class="breadcrumb">
-    <a href="<?= base_url('index.php') ?>">Inicio</a>
+    <a href="<?= base_url() ?>">Inicio</a>
     <span>></span>
-    <a href="<?= base_url('index.php/productos') ?>">Productos</a>
+    <a href="<?= base_url('productos') ?>">Productos</a>
     <span>></span>
-    <a href="<?= base_url('index.php/productos/categoria/' . $producto->categoria_nombre) ?>">
+    <a href="<?= base_url('productos/categoria/' . $producto->categoria_nombre) ?>">
         <?= $producto->categoria_nombre ?>
     </a>
     <span>></span>

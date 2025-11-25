@@ -141,8 +141,8 @@
 
 <body>
 
-<a href="<?= base_url('index.php/login/dashboard'); ?>" class="btn-back">&#8592; Volver</a>
-<a href="<?= base_url('index.php/categoria/agregar'); ?>" class="btn-create">Crear</a>
+<a href="<?= base_url('login/dashboard'); ?>" class="btn-back">&#8592; Volver</a>
+<a href="<?= base_url('categoria/agregar'); ?>" class="btn-create">Crear</a>
 
 <h2>Categorías Registradas</h2>
 
@@ -161,8 +161,8 @@
                 <td data-label="ID"><?= $c->id ?></td>
                 <td data-label="Nombre"><?= $c->nombre ?></td>
                 <td data-label="Opciones">
-                    <a href="<?= base_url('index.php/categoria/editar/'.$c->id) ?>">Editar</a>
-                    <a href="<?= base_url('index.php/categoria/eliminar/'.$c->id) ?>" class="btn-eliminar">Eliminar</a>
+                    <a href="<?= base_url('categoria/editar/'.$c->id) ?>">Editar</a>
+                    <a href="<?= base_url('categoria/eliminar/'.$c->id) ?>" class="btn-eliminar">Eliminar</a>
                 </td>
             </tr>
         <?php endforeach; ?>

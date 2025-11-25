@@ -108,7 +108,7 @@
 </head>
 <body>
 
-<a href="<?= base_url('index.php/productos/listar'); ?>" class="btn-back">&#8592; Volver</a>
+<a href="<?= base_url('productos/listar'); ?>" class="btn-back">&#8592; Volver</a>
 
 <h2>Editar Producto</h2>
 

@@ -168,7 +168,7 @@
         <?php endif; ?>
 
         <!-- FORMULARIO -->
-        <form action="<?= base_url('index.php/login/validar'); ?>" method="POST">
+        <form action="<?= base_url('login/validar'); ?>" method="POST">
 
             <div class="input-group">
                 <input type="text" name="usuario" placeholder="Usuario" required>

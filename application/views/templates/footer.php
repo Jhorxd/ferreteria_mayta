@@ -219,7 +219,7 @@
                     <div class="columna">
                         <h4><?= $categoria ?></h4>
                         <?php foreach ($productos as $p): ?>
-                            <a href="<?= base_url('index.php/productos/ver/' . $p['id']); ?>" class="item">
+                            <a href="<?= base_url('productos/ver/' . $p['id']); ?>" class="item">
                                 <?= $p['nombre'] ?>
                             </a>
                         <?php endforeach; ?>

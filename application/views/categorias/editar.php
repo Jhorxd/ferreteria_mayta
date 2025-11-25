@@ -87,7 +87,7 @@
 </head>
 <body>
 
-<a href="<?= base_url('index.php/categoria/listar'); ?>" class="btn-back">&#8592; Volver</a>
+<a href="<?= base_url('categoria/listar'); ?>" class="btn-back">&#8592; Volver</a>
 
 <h2>Editar Categoría</h2>
 

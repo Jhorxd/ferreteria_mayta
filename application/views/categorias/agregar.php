@@ -90,7 +90,7 @@
 </head>
 <body>
 
-<a href="<?= base_url('index.php/login/dashboard'); ?>" class="btn-back">&#8592; Volver</a>
+<a href="<?= base_url('login/dashboard'); ?>" class="btn-back">&#8592; Volver</a>
 
 <h2>Agregar Categoría</h2>
 

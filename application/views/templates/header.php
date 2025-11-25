@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ferreteria Mayta</title>
-<link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('images/logo/logo.png') ?>">
-<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('images/logo/logo.png') ?>">
-<link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('images/logo/logo.png') ?>">
+<link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('images/logo/favicon.png') ?>">
+<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('images/logo/favicon.png') ?>">
+<link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('images/logo/favicon.png') ?>">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
 /* ============================= */
@@ -350,16 +350,16 @@ nav ul li a:hover {
     <!-- Menú normal (desktop) -->
     <nav id="nav">
         <ul class="menu">
-            <li><a href="<?= base_url('index.php/inicio'); ?>">Inicio</a></li>
+            <li><a href="<?= base_url('inicio'); ?>">Inicio</a></li>
 
             <li class="mega">
-                <a href="<?= base_url('index.php/productos'); ?>">Productos</a>
+                <a href="<?= base_url('productos'); ?>">Productos</a>
                 <div class="mega-menu">
                     <?php foreach ($menu as $categoria => $productos): ?>
                         <div class="columna">
                             <h3><?= $categoria ?></h3>
                             <?php foreach ($productos as $p): ?>
-                                <a href="<?= base_url('index.php/productos/ver/' . $p['id']); ?>" class="item">
+                                <a href="<?= base_url('productos/ver/' . $p['id']); ?>" class="item">
                                     <?= $p['nombre'] ?>
                                 </a>
                             <?php endforeach; ?>
@@ -368,14 +368,14 @@ nav ul li a:hover {
                 </div>
             </li>
 
-            <li><a href="<?= base_url('index.php/nosotros'); ?>">Nosotros</a></li>
-            <li><a href="<?= base_url('index.php/contacto'); ?>">Contáctenos</a></li>
+            <li><a href="<?= base_url('nosotros'); ?>">Nosotros</a></li>
+            <li><a href="<?= base_url('contacto'); ?>">Contáctenos</a></li>
 
             <?php 
             $ci = get_instance();
             if ($ci->session->userdata('logeado') && $ci->session->userdata('usuario_id') == 1): ?>
                 <li style="margin-left:auto;">
-                    <a href="<?= base_url('index.php/login/dashboard'); ?>" style="font-weight:bold;">ADMINISTRAR</a>
+                    <a href="<?= base_url('login/dashboard'); ?>" style="font-weight:bold;">ADMINISTRAR</a>
                 </li>
             <?php endif; ?>
         </ul>
@@ -390,14 +390,14 @@ nav ul li a:hover {
 
     <!-- MENÚ FULLSCREEN -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="<?= base_url('index.php/inicio'); ?>">Inicio</a>
-        <a href="<?= base_url('index.php/productos'); ?>">Productos</a>
-        <a href="<?= base_url('index.php/nosotros'); ?>">Nosotros</a>
-        <a href="<?= base_url('index.php/contacto'); ?>">Contáctenos</a>
+        <a href="<?= base_url('inicio'); ?>">Inicio</a>
+        <a href="<?= base_url('productos'); ?>">Productos</a>
+        <a href="<?= base_url('nosotros'); ?>">Nosotros</a>
+        <a href="<?= base_url('contacto'); ?>">Contáctenos</a>
 
         <?php 
         if ($ci->session->userdata('logeado') && $ci->session->userdata('usuario_id') == 1): ?>
-            <a href="<?= base_url('index.php/login/dashboard'); ?>" style="font-weight:bold;">ADMINISTRAR</a>
+            <a href="<?= base_url('login/dashboard'); ?>" style="font-weight:bold;">ADMINISTRAR</a>
         <?php endif; ?>
     </div>
 </header>

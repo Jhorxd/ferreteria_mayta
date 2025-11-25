@@ -128,7 +128,7 @@ class Productos extends CI_Controller {
                     }
                 }
 
-                redirect(base_url("index.php/productos/listar"));
+                redirect(base_url("productos/listar"));
             }
 
             $this->load->view("producto/agregar", $data);
@@ -179,7 +179,7 @@ class Productos extends CI_Controller {
                 }
             }
 
-            redirect(base_url("index.php/productos/listar"));
+            redirect(base_url("productos/listar"));
         }
 
         $this->load->view("producto/editar", $data);
@@ -199,7 +199,7 @@ class Productos extends CI_Controller {
 
         $this->Producto_model->eliminarProducto($id);
 
-        redirect(base_url("index.php/productos/listar"));
+        redirect(base_url("productos/listar"));
     }
 }
 ?>
