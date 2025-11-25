@@ -176,7 +176,7 @@
             <?= nl2br($producto->descripcion) ?>
         </div>
 
-        <a href="https://wa.me/51981475582?text=Hola, deseo información sobre el producto: <?= urlencode($producto->nombre) ?>"
+        <a href="https://wa.me/51972156330?text=Hola, deseo información sobre el producto: <?= urlencode($producto->nombre) ?>"
            target="_blank"
            class="boton-comprar">
             Consultar por WhatsApp

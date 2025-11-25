@@ -198,7 +198,7 @@
                 <img src="<?= base_url('images/logo/logo.png') ?>" alt="Logo">
             </div>
             <p>Ventas, importación y distribución de herramientas para la industria de metalmecánica</p>
-            <p>+51 981 475 582</p>
+            <p>+51 972 156 330</p>
             <p>Av. Argentina 469 lima lima, Lima 15082</p>
             <div class="footer-bottom">
                 <div class="social-icons">
@@ -235,7 +235,7 @@
 </footer>
 <!-- BOTÓN FLOTANTE DE WHATSAPP -->
 <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-<a href="https://wa.me/51981475582" target="_blank" class="whatsapp-float">
+<a href="https://wa.me/51972156330" target="_blank" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
 </a>
 </body>
