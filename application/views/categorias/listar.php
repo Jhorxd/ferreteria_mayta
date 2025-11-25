@@ -43,6 +43,24 @@
             background-color: #192a56;
         }
 
+        .btn-create {
+                display: inline-block;
+                margin-bottom: 20px;
+                text-decoration: none;
+                color: #fff;
+                background-color: #273c75;
+                padding: 8px 16px;
+                border-radius: 8px;
+                transition: background 0.3s;
+                float: right; /* esto lo mueve a la derecha */
+        }
+
+        .btn-create:hover {
+                background-color: #192a56;
+        }
+
+
+
         table.dataTable {
             width: 100% !important;
             border-collapse: separate !important;
@@ -124,6 +142,7 @@
 <body>
 
 <a href="<?= base_url('index.php/login/dashboard'); ?>" class="btn-back">&#8592; Volver</a>
+<a href="<?= base_url('index.php/categoria/agregar'); ?>" class="btn-create">Crear</a>
 
 <h2>Categorías Registradas</h2>
 
