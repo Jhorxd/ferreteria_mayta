@@ -137,7 +137,7 @@
 
 </style>
 
-
+<br>
 <div class="breadcrumb">
     <a href="<?= base_url('index.php') ?>">Inicio</a>
     <span>></span>

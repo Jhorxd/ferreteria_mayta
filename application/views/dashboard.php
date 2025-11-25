@@ -103,7 +103,7 @@
 <br>
 
 <div class="container">
-
+<br>
     <!-- Botón de cerrar sesión -->
     <div style="text-align: right; margin-bottom: 15px;">
         <a class="btn" href="<?= base_url('index.php/login/salir'); ?>">

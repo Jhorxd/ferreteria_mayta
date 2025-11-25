@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Página</title>
+<title>Ferreteria Mayta</title>
 <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('images/logo/logo.png') ?>">
 <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('images/logo/logo.png') ?>">
 <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('images/logo/logo.png') ?>">
@@ -57,7 +57,7 @@ header .header-inner {
 
 /* Logo normal */
 header .logo img {
-    height: 40px;
+    height: 60px;
     transition: height 0.3s ease;
 }
 
@@ -71,7 +71,7 @@ header.shrink .header-inner {
 }
 
 header.shrink .logo img {
-    height: 33px; /* logo más pequeño */
+    height: 50px; /* logo más pequeño */
 }
 
 /* Para que el contenido debajo del header no quede oculto */
