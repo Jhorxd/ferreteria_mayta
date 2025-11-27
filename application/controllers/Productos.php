@@ -39,38 +39,37 @@ class Productos extends CI_Controller {
         $this->load->view("templates/footer");
     }
 
-    public function categoria($slug) {
-        $data["menu"] = $this->menuData();
+public function categoria($slug) {
+    $data["menu"] = $this->menuData();
 
-        // 1. Convertir slug a nombre
-        $categoria_nombre = strtoupper($slug);
+    // 1. Buscar categoría por slug
+    $categoria = $this->Producto_model->get_categoria_por_slug($slug);
 
-        // 2. Buscar la categoría para obtener el ID
-        $categoria = $this->Producto_model->get_categoria_por_nombre($categoria_nombre);
-
-        if (!$categoria) {
-            show_404();
-        }
-
-        // 3. Obtener productos por ID
-        $data['categoria'] = $categoria_nombre;
-        
-        $data['productos'] = $this->Producto_model->get_productos_por_categoria($categoria->id);
-
-        // 4. Cargar vista
-        $this->load->view("templates/header", $data);
-        $this->load->view("categorias/plantilla_categoria", $data);
-        $this->load->view("templates/footer");
+    if (!$categoria) {
+        show_404();
     }
 
-    public function ver($id)
+    // 2. Datos para la vista
+    $data['categoria'] = $categoria->nombre;
+    $data['productos'] = $this->Producto_model->get_productos_por_categoria($categoria->id);
+
+    // 3. Cargar vista
+    $this->load->view("templates/header", $data);
+    $this->load->view("categorias/plantilla_categoria", $data);
+    $this->load->view("templates/footer");
+}
+
+
+public function ver($id)
 {
     $data["menu"] = $this->menuData();
     $data['producto'] = $this->Producto_model->obtenerPorId($id);
+
     $this->load->view("templates/header", $data);
     $this->load->view('producto/ver', $data);
     $this->load->view("templates/footer");
 }
+
 
 
   // ===========================

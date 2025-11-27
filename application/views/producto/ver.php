@@ -143,12 +143,13 @@
     <span>></span>
     <a href="<?= base_url('productos') ?>">Productos</a>
     <span>></span>
-    <a href="<?= base_url('productos/categoria/' . $producto->categoria_nombre) ?>">
+    <a href="<?= base_url('productos/categoria/' . $producto->categoria_slug) ?>">
         <?= $producto->categoria_nombre ?>
     </a>
     <span>></span>
     <strong><?= $producto->nombre ?></strong>
 </div>
+
 
 
 <div class="producto-container">

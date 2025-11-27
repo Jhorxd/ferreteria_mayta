@@ -205,7 +205,7 @@
 
         $titulos = [
             "TORNO",
-            "CEPILLO",
+            "INSTRUMENTOS DE MEDICIÓN",
             "TALADRO",
             "FRESADO",
             "BROCAS"
@@ -214,10 +214,10 @@
         // Slugs para URL
         $slugs = [
             "torno",
-            "cepillos",
+            "instrumentos-de-medicion",
             "taladro",
-            "fresa",
-            "broca"
+            "fresado",
+            "brocas"
         ];
 
         foreach ($imagenes as $index => $img): ?>

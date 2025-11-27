@@ -20,16 +20,29 @@ class Producto_model extends CI_Model {
             ->row();
     }
 
-        public function obtenerPorId($id)
+    public function get_categoria_por_slug($slug)
     {
-        $this->db->select('p.*, c.nombre AS categoria_nombre');
+        return $this->db
+            ->where('slug', $slug)
+            ->get('categorias')
+            ->row();
+    }
+
+    public function obtenerPorId($id)
+    {
+        $this->db->select('
+            p.*, 
+            c.nombre AS categoria_nombre,
+            c.slug AS categoria_slug
+        ');
         $this->db->from('productos p');
         $this->db->join('categorias c', 'c.id = p.categoria_id', 'left');
         $this->db->where('p.id', $id);
 
         $query = $this->db->get();
-        return $query->row(); // devuelve SOLO una fila
+        return $query->row();
     }
+
 
  // =======================================
     // LISTAR TODOS LOS PRODUCTOS
