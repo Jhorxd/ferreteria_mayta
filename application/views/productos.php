@@ -205,7 +205,7 @@
 
         $titulos = [
             "TORNO",
-            "INSTRUMENTOS DE MEDICIÓN",
+            "HERRAMIENTAS DE MEDICIÓN",
             "TALADRO",
             "FRESADO",
             "BROCAS"
@@ -214,7 +214,7 @@
         // Slugs para URL
         $slugs = [
             "torno",
-            "instrumentos-de-medicion",
+            "herramientas-de-medicion",
             "taladro",
             "fresado",
             "brocas"
