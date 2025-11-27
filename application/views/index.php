@@ -256,6 +256,9 @@
         <div class="slide" style="background-image: url('<?= base_url("images/banner/banner6.jpg") ?>');">
         </div>
 
+        <div class="slide" style="background-image: url('<?= base_url("images/banner/banner7.jpg") ?>');">
+        </div>
+
     </div>
 
     <button class="prev">&#10094;</button>

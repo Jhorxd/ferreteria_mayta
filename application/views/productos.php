@@ -7,7 +7,7 @@
     position: relative;
     width: 100%;
     height: 530px;
-    background-image: url('<?= base_url("images/banner/productos.jpg") ?>');
+    background-image: url('<?= base_url("images/banner/productos.jpeg") ?>');
     background-size: cover;
     background-position: center;
     display: flex;
