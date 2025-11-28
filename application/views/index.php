@@ -285,7 +285,7 @@
     <div class="carousel-wrapper">
 <div class="carousel">
     <?php 
-    for($i=1; $i<=10; $i++): 
+    for($i=1; $i<=9; $i++): 
     ?>
         <div class="carousel-item">
             <img src="<?= base_url("images/marcas/marca$i.png") ?>" alt="Marca <?= $i ?>">
@@ -294,12 +294,13 @@
 
     <!-- Duplicado para generar efecto infinito -->
     <?php 
-    for($i=1; $i<=13; $i++): 
+    for($i=1; $i<=9; $i++): 
     ?>
         <div class="carousel-item">
             <img src="<?= base_url("images/marcas/marca$i.png") ?>" alt="Marca <?= $i ?>">
         </div>
     <?php endfor; ?>
+    
 </div>
 
     </div>
