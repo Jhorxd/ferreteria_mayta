@@ -35,9 +35,8 @@ try {
     $mail->addAddress('ventas@ferreteriaindustrialmayta.com');
 
     $mail->isHTML(true);
-    $mail->Subject = "Nuevo mensaje desde el formulario web";
+    $mail->Subject = "FERRETERIA INDUSTRIAL MAYATA - Nuevo mensaje desde la web";
     $mail->Body = "
-        <h2>Nuevo mensaje desde la web</h2>
         <p><strong>Apellidos:</strong> $apellidos</p>
         <p><strong>Nombres:</strong> $nombres</p>
         <p><strong>Correo:</strong> $correo</p>

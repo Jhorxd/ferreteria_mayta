@@ -440,26 +440,39 @@ document.getElementById("form-contacto").addEventListener("submit", function(e){
     })
     .then(res => res.text())
     .then(data => {
-        alert(data);
-        document.getElementById("form-contacto").reset();
+
+        // Si el PHP devuelve "Mensaje enviado correctamente."
+        if (data.includes("correctamente")) {
+
+            Swal.fire({
+                icon: 'success',
+                title: '¡Mensaje enviado!',
+                text: 'Nos pondremos en contacto contigo pronto.',
+                confirmButtonColor: '#e63946'
+            });
+
+            // Reset form
+            document.getElementById("form-contacto").reset();
+
+        } else {
+            // Si PHP devolvió error
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: data,
+                confirmButtonColor: '#e63946'
+            });
+        }
+
     })
-    .catch(err => alert("Error al enviar el mensaje"));
-});
-</script>
-
-<script>
-document.getElementById("form-contacto").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    // ALERTA EXITOSA
-    Swal.fire({
-        icon: 'success',
-        title: '¡Mensaje enviado!',
-        text: 'Nos pondremos en contacto contigo pronto.',
-        confirmButtonColor: '#e63946'
+    .catch(err => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en la conexión',
+            text: 'No se pudo enviar el mensaje.',
+            confirmButtonColor: '#e63946'
+        });
     });
-
-    this.reset();
 });
 </script>
 

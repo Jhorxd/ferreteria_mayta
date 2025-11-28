@@ -45,7 +45,7 @@
         Estamos listos para atenderle, póngase en contacto con nosotros.
     </p>
 
-    <form style="max-width:800px; margin:auto; text-align:left;">
+    <form id="form-contacto" method="POST" style="max-width:800px; margin:auto; text-align:left;">
 
         <div style="display:flex; gap:40px; margin-bottom:30px;">
             <div style="flex:1;">
@@ -105,3 +105,51 @@
 
 </section>
 
+
+<script>
+document.getElementById("form-contacto").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let datos = new FormData(this);
+
+    fetch("enviar_contacto.php", {
+        method: "POST",
+        body: datos
+    })
+    .then(res => res.text())
+    .then(data => {
+
+        // Si el PHP devuelve "Mensaje enviado correctamente."
+        if (data.includes("correctamente")) {
+
+            Swal.fire({
+                icon: 'success',
+                title: '¡Mensaje enviado!',
+                text: 'Nos pondremos en contacto contigo pronto.',
+                confirmButtonColor: '#e63946'
+            });
+
+            // Reset form
+            document.getElementById("form-contacto").reset();
+
+        } else {
+            // Si PHP devolvió error
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: data,
+                confirmButtonColor: '#e63946'
+            });
+        }
+
+    })
+    .catch(err => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en la conexión',
+            text: 'No se pudo enviar el mensaje.',
+            confirmButtonColor: '#e63946'
+        });
+    });
+});
+</script>
