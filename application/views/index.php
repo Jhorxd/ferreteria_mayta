@@ -370,7 +370,7 @@
         Estamos listos para atenderle, póngase en contacto con nosotros.
     </p>
 
-    <form id="form-contacto" style="max-width:800px; margin:auto; text-align:left;">
+    <form id="form-contacto" method="POST" style="max-width:800px; margin:auto; text-align:left;">
 
         <div style="display:flex; gap:40px; margin-bottom:30px;">
             <div style="flex:1;">
@@ -428,6 +428,24 @@
     </form>
 
 </section>
+<script>
+document.getElementById("form-contacto").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let datos = new FormData(this);
+
+    fetch("enviar_contacto.php", {
+        method: "POST",
+        body: datos
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert(data);
+        document.getElementById("form-contacto").reset();
+    })
+    .catch(err => alert("Error al enviar el mensaje"));
+});
+</script>
 
 <script>
 document.getElementById("form-contacto").addEventListener("submit", function(e) {
