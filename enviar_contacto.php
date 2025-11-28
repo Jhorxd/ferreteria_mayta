@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -21,20 +24,16 @@ $mail = new PHPMailer(true);
 try {
     // CONFIG SMTP
     $mail->isSMTP();
-    $mail->Host = 'mail.ferreteriaindustrialmayta.com'; // SMTP de tu hosting
+    $mail->Host = 'mail.ferreteriaindustrialmayta.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'ventas@ferreteriaindustrialmayta.com'; // TU CORREO
-    $mail->Password = '.{IsP)#Mowad'; // Contraseña del correo
+    $mail->Username = 'ventas@ferreteriaindustrialmayta.com';
+    $mail->Password = '.{IsP)#Mowad';
     $mail->SMTPSecure = 'ssl'; 
     $mail->Port = 465;
 
-    // Remitente
     $mail->setFrom('ventas@ferreteriaindustrialmayta.com', 'Formulario Web');
-
-    // Destino (puede ser tu Gmail o el mismo correo)
     $mail->addAddress('ventas@ferreteriaindustrialmayta.com');
 
-    // Contenido
     $mail->isHTML(true);
     $mail->Subject = "Nuevo mensaje desde el formulario web";
     $mail->Body = "
