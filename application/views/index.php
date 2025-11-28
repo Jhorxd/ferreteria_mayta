@@ -323,7 +323,7 @@
 
         $slugs = [
             "torno",
-            "cepillos",
+            "herramientas-de-medicion",
             "taladro",
             "fresa",
             "brocas"
