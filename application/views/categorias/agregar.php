@@ -101,35 +101,66 @@
 </form>
 
 <script>
-// Confirmación antes de enviar con SweetAlert2
 document.getElementById('formCategoria').addEventListener('submit', function(e){
     e.preventDefault(); // evitar envío inmediato
 
-    Swal.fire({
-        title: '¿Agregar esta categoría?',
-        text: "Confirma que quieres guardar esta categoría",
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#00a8ff',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, agregar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Aquí se puede enviar el formulario
-            e.target.submit();
+    let nombre = document.querySelector('input[name="nombre"]').value.trim();
 
-            // Mensaje de éxito
+    if (nombre === "") {
+        Swal.fire("Campo vacío", "Ingresa un nombre de categoría", "warning");
+        return;
+    }
+
+    // Validar existencia vía AJAX
+    fetch("<?= base_url('categoria/validarCategoria'); ?>", {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: "nombre=" + encodeURIComponent(nombre)
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        // Si ya existe, mostrar error
+        if (data.existe) {
             Swal.fire({
-                title: 'Categoría agregada',
-                icon: 'success',
-                timer: 1500,
-                showConfirmButton: false
+                icon: "error",
+                title: "La categoría ya existe",
+                text: "Escribe otro nombre"
             });
+            return;
         }
+
+        // Si NO existe → confirmar guardado
+        Swal.fire({
+            title: '¿Agregar esta categoría?',
+            text: "Confirma que quieres guardar esta categoría",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#00a8ff',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, agregar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                // Mostrar mensaje de éxito y esperar antes de enviar
+                Swal.fire({
+                    title: 'Categoría agregada',
+                    icon: 'success',
+                    timer: 1200,
+                    showConfirmButton: false
+                });
+
+                setTimeout(() => {
+                    e.target.submit();
+                }, 1200); // Espera de 1.2 segundos
+            }
+        });
+
     });
 });
 </script>
+
 
 </body>
 </html>

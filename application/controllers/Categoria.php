@@ -57,5 +57,13 @@ class Categoria extends CI_Controller {
         $this->Categoria_model->eliminarCategoria($id);
         redirect(base_url("categoria/listar"));
     }
+
+        public function validarCategoria()
+    {
+        $nombre = trim($this->input->post('nombre'));
+        $existe = $this->Categoria_model->existe_categoria($nombre);
+
+        echo json_encode(['existe' => $existe]);
+    }
 }
 ?>

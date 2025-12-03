@@ -106,4 +106,11 @@ class Producto_model extends CI_Model {
     public function eliminarProducto($id) {
         $this->db->where("id", $id)->delete("productos");
     }
+
+        public function existe_producto($nombre)
+    {
+        return $this->db->where('nombre', $nombre)
+                        ->get('productos')
+                        ->num_rows() > 0;
+    }
 }

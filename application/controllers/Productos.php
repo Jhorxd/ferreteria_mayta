@@ -200,5 +200,12 @@ public function ver($id)
 
         redirect(base_url("productos/listar"));
     }
+    public function validarProducto()
+    {
+        $nombre = trim($this->input->post('nombre'));
+        $existe = $this->Producto_model->existe_producto($nombre);
+
+        echo json_encode(['existe' => $existe]);
+    }
 }
 ?>

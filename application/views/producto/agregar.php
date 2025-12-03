@@ -164,34 +164,62 @@ document.getElementById('inputImagen').addEventListener('change', function(e) {
     }
 });
 
-// SweetAlert2 al enviar
+// Validación con SweetAlert y AJAX
 document.getElementById('formAgregar').addEventListener('submit', function(e){
     e.preventDefault(); // evitar envío inmediato
 
-    Swal.fire({
-        title: '¿Agregar este producto?',
-        text: "Confirma que quieres guardar este producto",
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#00a8ff',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, agregar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
+    let nombre = document.querySelector('input[name="nombre"]').value.trim();
 
-            // Mostrar mensaje de éxito antes de enviar
+    if (nombre === "") {
+        Swal.fire("Campo vacío", "Ingresa un nombre de producto", "warning");
+        return;
+    }
+
+    // Validar existencia vía AJAX
+    fetch("<?= base_url('productos/validarProducto'); ?>", {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: "nombre=" + encodeURIComponent(nombre)
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        // Si ya existe → error
+        if (data.existe) {
             Swal.fire({
-                title: '¡Producto agregado!',
-                icon: 'success',
-                timer: 1500,
-                showConfirmButton: false,
-                willClose: () => {
-                    // enviar formulario al cerrar el mensaje
-                    e.target.submit();
-                }
+                icon: "error",
+                title: "El producto ya existe",
+                text: "Escribe otro nombre"
             });
+            return;
         }
+
+        // Confirmación para guardar
+        Swal.fire({
+            title: '¿Agregar este producto?',
+            text: "Confirma que quieres guardar este producto",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#00a8ff',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, agregar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                // Mostrar mensaje de éxito y esperar antes de enviar
+                Swal.fire({
+                    title: '¡Producto agregado!',
+                    icon: 'success',
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+
+                setTimeout(() => {
+                    e.target.submit();
+                }, 1500); // Espera de 1.5 segundos antes de enviar
+            }
+        });
     });
 });
 </script>

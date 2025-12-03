@@ -67,6 +67,13 @@ class Categoria_model extends CI_Model {
     return $slug;
 }
 
+    public function existe_categoria($nombre)
+    {
+        return $this->db->where('nombre', $nombre)
+                        ->get('categorias')
+                        ->num_rows() > 0;
+    }
+
 
 }
 ?>
