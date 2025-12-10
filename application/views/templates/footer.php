@@ -76,7 +76,6 @@
     text-decoration: none; /* o lo dejas si quieres subrayado */
     background-color: #fff; /* fondo blanco */
     color: #000;            /* texto negro */
-    padding: 2px 4px;       /* opcional: un poco de espacio para que se vea mejor */
     border-radius: 3px;     /* opcional: bordes redondeados */
     transition: 0.3s;       /* suave transición */
 }
