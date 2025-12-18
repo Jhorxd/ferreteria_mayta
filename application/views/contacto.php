@@ -51,13 +51,13 @@
             <div style="flex:1;">
                 <label style="font-weight:600; margin-bottom:6px; display:block;">Apellidos:</label>
                 <input type="text" name="apellidos" required
-                style="width:100%; padding:14px; border-radius:8px; border:1px solid #ccc;">
+                style="width:90%; padding:14px; border-radius:8px; border:1px solid #ccc;">
             </div>
 
             <div style="flex:1;">
                 <label style="font-weight:600; margin-bottom:6px; display:block;">Nombres:</label>
                 <input type="text" name="nombres" required
-                style="width:100%; padding:14px; border-radius:8px; border:1px solid #ccc;">
+                style="width:90%; padding:14px; border-radius:8px; border:1px solid #ccc;">
             </div>
         </div>
 
@@ -65,13 +65,13 @@
             <div style="flex:1;">
                 <label style="font-weight:600; margin-bottom:6px; display:block;">Correo electrónico:</label>
                 <input type="email" name="correo" required
-                style="width:100%; padding:14px; border-radius:8px; border:1px solid #ccc;">
+                style="width:90%; padding:14px; border-radius:8px; border:1px solid #ccc;">
             </div>
 
             <div style="flex:1;">
                 <label style="font-weight:600; margin-bottom:6px; display:block;">Celular:</label>
                 <input type="text" name="celular" required
-                style="width:100%; padding:14px; border-radius:8px; border:1px solid #ccc;">
+                style="width:90%; padding:14px; border-radius:8px; border:1px solid #ccc;">
             </div>
         </div>
 
@@ -79,7 +79,7 @@
         <div style="margin-bottom:20px;">
             <label style="font-weight:600;">Mensaje:</label>
             <textarea name="mensaje" rows="5" required
-            style="width:100%; padding:12px; border-radius:8px; border:1px solid #ccc; resize:none;"></textarea>
+            style="width:90%; padding:12px; border-radius:8px; border:1px solid #ccc; resize:none;"></textarea>
         </div>
 
         <div style="text-align:center;">

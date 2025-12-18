@@ -48,27 +48,12 @@
     text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
 }
 
-/* Tablet */
+/* Tablet y celular → esconder banner */
 @media (max-width: 992px) {
     .banner {
-        height: 700px;
-    }
-    .banner-text span {
-        font-size: 50px;
+        display: none !important;
     }
 }
-
-/* Celular */
-@media (max-width: 600px) {
-    .banner {
-        height: 500px;
-        padding: 50px;
-    }
-    .banner-text span {
-        font-size: 36px;
-    }
-}
-
 
 
 /* ==========================
@@ -200,7 +185,8 @@
             "Ferreteria2.jpg",
             "Ferreteria3.jpg",
             "Ferreteria4.jpg",
-            "Ferreteria5.jpg"
+            "Ferreteria5.jpg",
+            "Ferreteria6.jpg"
         ];
 
         $titulos = [
@@ -208,7 +194,8 @@
             "HERRAMIENTAS DE MEDICIÓN",
             "TALADRO",
             "FRESADO",
-            "BROCAS"
+            "BROCAS",
+            "BARRENADOR"
         ];
 
         // Slugs para URL
@@ -216,8 +203,9 @@
             "torno",
             "herramientas-de-medicion",
             "taladro",
-            "fresado",
-            "brocas"
+            "fresa-rotativa-sm",
+            "brocas",
+            "barrenador"
         ];
 
         foreach ($imagenes as $index => $img): ?>

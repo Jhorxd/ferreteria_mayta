@@ -271,10 +271,10 @@
 
 <section style="text-align:center; padding:10px 5px; background-color:#f8f8f8;">
 <br><br>
-<h2 style="font-size:48px; font-weight:900; margin-bottom:20px;">
+<h2 style="font-size:40px; font-weight:800; margin-bottom:20px;">
     HERRAMIENTAS DE CONFIANZA PARA LA INDUSTRIA
 </h2>
-<p style="font-size:20px; font-weight:400; color:#555;">
+<p style="font-size:15px; font-weight:400; color:#555;">
     Distribuimos y vendemos productos de alta calidad, importados de los mejores fabricantes del sector metalmecánico.
 </p>
 <p style="font-size:20px; font-weight:400; color:#555;">
@@ -285,7 +285,7 @@
     <div class="carousel-wrapper">
 <div class="carousel">
     <?php 
-    for($i=1; $i<=9; $i++): 
+    for($i=1; $i<=10; $i++): 
     ?>
         <div class="carousel-item">
             <img src="<?= base_url("images/marcas/marca$i.png") ?>" alt="Marca <?= $i ?>">
@@ -294,7 +294,16 @@
 
     <!-- Duplicado para generar efecto infinito -->
     <?php 
-    for($i=1; $i<=9; $i++): 
+    for($i=1; $i<=10; $i++): 
+    ?>
+        <div class="carousel-item">
+            <img src="<?= base_url("images/marcas/marca$i.png") ?>" alt="Marca <?= $i ?>">
+        </div>
+    <?php endfor; ?>
+
+        <!-- Duplicado para generar efecto infinito -->
+    <?php 
+    for($i=1; $i<=10; $i++): 
     ?>
         <div class="carousel-item">
             <img src="<?= base_url("images/marcas/marca$i.png") ?>" alt="Marca <?= $i ?>">
@@ -319,7 +328,8 @@
             "Ferreteria2.jpg",
             "Ferreteria3.jpg",
             "Ferreteria4.jpg",
-            "Ferreteria5.jpg"
+            "Ferreteria5.jpg",
+            "Ferreteria6.jpg"
         ];
 
         $slugs = [
@@ -327,7 +337,8 @@
             "herramientas-de-medicion",
             "taladro",
             "fresa",
-            "brocas"
+            "brocas",
+            "barrenador"
         ];
 
         foreach ($imagenes as $index => $img): 
@@ -377,13 +388,13 @@
             <div style="flex:1;">
                 <label style="font-weight:600; margin-bottom:6px; display:block;">Apellidos:</label>
                 <input type="text" name="apellidos" required
-                style="width:100%; padding:14px; border-radius:8px; border:1px solid #ccc;">
+                style="width:90%; padding:14px; border-radius:8px; border:1px solid #ccc;">
             </div>
 
             <div style="flex:1;">
                 <label style="font-weight:600; margin-bottom:6px; display:block;">Nombres:</label>
                 <input type="text" name="nombres" required
-                style="width:100%; padding:14px; border-radius:8px; border:1px solid #ccc;">
+                style="width:90%; padding:14px; border-radius:8px; border:1px solid #ccc;">
             </div>
         </div>
 
@@ -391,20 +402,20 @@
             <div style="flex:1;">
                 <label style="font-weight:600; margin-bottom:6px; display:block;">Correo electrónico:</label>
                 <input type="email" name="correo" required
-                style="width:100%; padding:14px; border-radius:8px; border:1px solid #ccc;">
+                style="width:90%; padding:14px; border-radius:8px; border:1px solid #ccc;">
             </div>
 
             <div style="flex:1;">
                 <label style="font-weight:600; margin-bottom:6px; display:block;">Celular:</label>
                 <input type="text" name="celular" required
-                style="width:100%; padding:14px; border-radius:8px; border:1px solid #ccc;">
+                style="width:90%; padding:14px; border-radius:8px; border:1px solid #ccc;">
             </div>
         </div>
 
         <div style="margin-bottom:20px;">
             <label style="font-weight:600;">Mensaje:</label>
             <textarea name="mensaje" rows="5" required
-            style="width:100%; padding:12px; border-radius:8px; border:1px solid #ccc; resize:none;"></textarea>
+            style="width:90%; padding:12px; border-radius:8px; border:1px solid #ccc; resize:none;"></textarea>
         </div>
 
         <div style="text-align:center;">
