@@ -32,3 +32,8 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+
+# CodeIgniter 3 - archivos sensibles
+application/config/database.php
+application/config/config.php
+.htaccess

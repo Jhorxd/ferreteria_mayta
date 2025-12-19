@@ -58,9 +58,16 @@
 /* Celular */
 @media (max-width: 576px) {
     .video-section {
-        display: none;
+        padding: 0;
+        margin: 30px 0;
     }
-}
+
+    .video-section video {
+        width: 92%;
+        max-width: 92%;
+        border-radius: 12px;
+    }}
+
 
 
 
