@@ -30,10 +30,54 @@
     }
 }
 
+
+.video-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+}
+
+.video-section video {
+    width: 70%;
+    max-width: 900px;
+    height: auto;
+
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    background: black;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .video-section video {
+        width: 90%;
+    }
+}
+
+/* Celular */
+@media (max-width: 576px) {
+    .video-section {
+        display: none;
+    }
+}
+
+
+
 </style>
 
 <div class="banner">
 </div>
+
+<div class="video-section">
+    <video controls autoplay muted playsinline>
+        <source src="<?= base_url('videos/contacto.mp4') ?>" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+    </video>
+</div>
+
+
+
 
 <section style="padding:60px 20px; background:white; text-align:center;">
     
