@@ -192,8 +192,8 @@
         $titulos = [
             "TORNO",
             "HERRAMIENTAS DE MEDICIÓN",
-            "TALADRO",
-            "FRESADO",
+            "HERRAMIENTAS DE TALADRO",
+            "HERRAMIENTAS DE FRESADO",
             "BROCAS",
             "BARRENADOR"
         ];
