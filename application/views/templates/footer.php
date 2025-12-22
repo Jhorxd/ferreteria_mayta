@@ -191,6 +191,7 @@ footer {
             </div>
             <p>Ventas, importación y distribución de herramientas para la industria metalmecánica</p>
             <p>+51 972 156 330</p>
+            <p>+51 902 258 983</p>
             <p>Av. Argentina 469, Lima 15082</p>
         </div>
 
